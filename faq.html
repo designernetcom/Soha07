@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	
+	<title></title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="StackBros">
+	<meta name="description" content="Technology and Corporate Template">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- Header START -->
+<header class="header-sticky header-absolute" style="background-color:#fff;">
+	<!-- Nav START -->
+	<nav class="navbar navbar-expand-xl">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand me-0" href="index.html">
+				<img class="light-mode-item navbar-brand-item" src="assets/images/logo/soho-logo.png" alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="assets/images/logo/soho-logo.png" alt="logo">
+			</a>
+			<!-- Logo END -->
+
+			<!-- Main navbar START -->
+			<div class="navbar-collapse collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link  active" href="index.html" data-bs-auto-close="outside"  aria-haspopup="true" aria-expanded="false">Home</a>
+						
+					</li>
+
+                    <li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="about.html" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">About</a>
+						<ul class="dropdown-menu">
+							<!-- Dropdown submenu -->
+	
+							<li> <a class="dropdown-item" href="about.html">About </a></li>
+							<li> <a class="dropdown-item" href="#">Founder’s Message</a></li>
+							
+		
+
+			
+
+
+	
+
+
+						
+						</ul>
+					</li>
+
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown dropdown-fullwidth">
+						<a class="nav-link " href="course.html" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Courses</a>
+					
+					</li>
+							<!-- Nav item -->
+							<li class="nav-item dropdown dropdown-fullwidth">
+								<a class="nav-link " href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Training</a>
+							
+							</li>
+								<!-- Nav item -->
+								<li class="nav-item dropdown dropdown-fullwidth">
+									<a class="nav-link " href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Workshop</a>
+								
+								</li>
+								<li class="nav-item dropdown dropdown-fullwidth">
+									<a class="nav-link " href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">FAQ</a>
+								
+								</li>
+								<li class="nav-item dropdown dropdown-fullwidth">
+									<a class="nav-link " href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gallery</a>
+								
+								</li>
+
+		
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="contact.html">Contact us</a> </li>
+				</ul>
+			</div>
+			<!-- Main navbar END -->
+       			<!-- Buttons -->
+			<ul class="nav align-items-center dropdown-hover ms-sm-2">
+	
+	
+				<!-- Dark mode option END -->
+				<li class="nav-item">
+					<button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-animation">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span>
+					</button>
+				</li>	
+			</ul>
+	
+
+		</div>
+	</nav>
+	<!-- Nav END -->
+</header>
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Main Banner START -->
+<section class="pt-lg-8">
+	<div class="container pt-4 pt-lg-0">
+		<div class="row g-4 g-xl-6 align-items-center">
+			<!-- Right content -->
+			<div class="col-md-6">
+				<h1 class="mb-4">Frequently Asked Questions</h1>
+				<p class="mb-0">Need a help with something? Here are our most frequently asked questions.</p>
+
+				<!-- <div class="col-10 mt-4">
+					<form class="position-relative">
+						<input class="form-control form-control-lg bg-light ps-6" type="search" placeholder="Enter your keyword..." aria-label="Search">
+						<button class="btn bg-transparent px-3 py-0 position-absolute top-50 start-0 translate-middle-y" type="submit"><i class="bi bi-search fs-6"> </i></button>
+					</form>
+				</div> -->
+			</div>
+
+			<!-- Left svg -->
+			<div class="col-md-6">
+				<img src="https://img.freepik.com/free-vector/faqs-concept-illustration_114360-5245.jpg" alt="">
+			</div>
+
+		</div>
+	</div>
+</section>
+<!-- =======================
+Main Banner END -->
+
+<!-- =======================
+Faq START -->
+<section class="pt-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 mx-auto">
+				<!-- Accordion START -->
+				<div class="accordion accordion-icon accordion-border" id="accordionFaq">
+					<!-- Item -->
+					<div class="accordion-item mb-3">
+						<div class="accordion-header font-base" id="heading-1">
+							<button class="accordion-button fw-semibold rounded collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+								How many items are there on this list?
+							</button>
+						</div>
+						<!-- Body -->
+						<div id="collapse-1" class="accordion-collapse collapse show" aria-labelledby="heading-1" data-bs-parent="#accordionFaq">
+							<div class="accordion-body mt-3 pb-0">
+								Was out laughter raptures returned outweigh. Luckily cheered colonel I do we attack highest enabled. Tried law yet style child. The bore of true of no be deal. Drawings offended yet answered Jennings perceive laughing six did far. Rooms oh fully taken by worse do. Points afraid but may end law lasted.
+							</div>
+						</div>
+					</div>
+
+					<!-- Item -->
+					<div class="accordion-item mb-3">
+						<div class="accordion-header font-base" id="heading-2">
+							<button class="accordion-button fw-semibold rounded collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+								Can you describe mizzle in just one sentence?
+							</button>
+						</div>
+						<!-- Body -->
+						<div id="collapse-2" class="accordion-collapse collapse" aria-labelledby="heading-2" data-bs-parent="#accordionFaq">
+							<div class="accordion-body mt-3">
+								September how men saw tolerably two behavior arranging. She offices for highest and replied one venture pasture. Applauded no discovery in newspaper allowance am northward. Frequently partiality possession resolution at or appearance unaffected me. Engaged its was the evident pleased husband. Ye goodness felicity do disposal dwelling no. First am plate jokes to began to cause a scale. Subjects he prospect elegance followed no overcame possible it on. Improved own provided blessing may peculiar domestic. Sight house has sex never. No visited raising gravity outward subject my cottage Mr be.
+							</div>
+						</div>
+					</div>
+
+					<!-- Item -->
+					<div class="accordion-item mb-3">
+						<div class="accordion-header font-base" id="heading-3">
+							<button class="accordion-button fw-semibold collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+								What services do agencies provide?
+							</button>
+						</div>
+						<!-- Body -->
+						<div id="collapse-3" class="accordion-collapse collapse" aria-labelledby="heading-3" data-bs-parent="#accordionFaq">
+							<div class="accordion-body mt-3">
+								Agencies provide a wide range of services depending on their specialization. Some common services include advertising campaigns, digital marketing, branding, creative design, media planning and buying, public relations, talent management, event planning, and market research.
+							</div>
+						</div>
+					</div>
+
+					<!-- Item -->
+					<div class="accordion-item mb-3">
+						<div class="accordion-header font-base" id="heading-4">
+							<button class="accordion-button fw-semibold collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+								How do I choose the right agency for my needs?
+							</button>
+						</div>
+						<!-- Body -->
+						<div id="collapse-4" class="accordion-collapse collapse" aria-labelledby="heading-4" data-bs-parent="#accordionFaq">
+							<div class="accordion-body mt-3">
+								When selecting an agency, consider your specific requirements, budget, and the agency's expertise and track record in your industry. Research their portfolio, client testimonials, and case studies to gauge their capabilities. It's also important to meet with the agency to assess their communication style and ensure they align with your goals.
+							</div>
+						</div>
+					</div>
+
+					<!-- Item -->
+					<div class="accordion-item mb-3">
+						<div class="accordion-header font-base" id="heading-5">
+							<button class="accordion-button fw-semibold collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
+								What are the advantages of hiring an agency?
+							</button>
+						</div>
+						<!-- Body -->
+						<div id="collapse-5" class="accordion-collapse collapse" aria-labelledby="heading-5" data-bs-parent="#accordionFaq">
+							<div class="accordion-body mt-3">
+								Hiring an agency offers several benefits, such as access to specialized skills and expertise, industry insights, creative thinking, established networks, and resources. Agencies can provide fresh perspectives, save time and effort, and help you achieve your objectives more effectively.
+							</div>
+						</div>
+					</div>
+
+					<!-- Item -->
+					<div class="accordion-item mb-3">
+						<div class="accordion-header font-base" id="heading-6">
+							<button class="accordion-button fw-semibold collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-6" aria-expanded="false" aria-controls="collapse-6">
+								How long does it take for an agency to deliver results?
+							</button>
+						</div>
+						<!-- Body -->
+						<div id="collapse-6" class="accordion-collapse collapse" aria-labelledby="heading-6" data-bs-parent="#accordionFaq">
+							<div class="accordion-body mt-3">
+								The timeframe for achieving results depends on the nature of the project and its complexity. Short-term campaigns may yield results within weeks, while long-term strategies may take several months or even years to show significant impact. Effective collaboration, clear goals, and realistic expectations can help expedite the process.
+							</div>
+						</div>
+					</div>
+
+					<!-- Item -->
+					<div class="accordion-item mb-3">
+						<div class="accordion-header font-base" id="heading-7">
+							<button class="accordion-button fw-semibold collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-7" aria-expanded="false" aria-controls="collapse-7">
+								How can I measure the success of agency campaigns or services?
+							</button>
+						</div>
+						<!-- Body -->
+						<div id="collapse-7" class="accordion-collapse collapse" aria-labelledby="heading-7" data-bs-parent="#accordionFaq">
+							<div class="accordion-body mt-3">
+								Success metrics depend on the goals and objectives of your project. Common metrics include increased sales or revenue, improved brand recognition, website traffic growth, social media engagement, lead generation, customer acquisition, or positive media coverage. Work with the agency to define key performance indicators (KPIs) and establish measurement mechanisms.
+							</div>
+						</div>
+					</div>
+
+					<!-- Item -->
+					<div class="accordion-item mb-3">
+						<div class="accordion-header font-base" id="heading-8">
+							<button class="accordion-button fw-semibold collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-8" aria-expanded="false" aria-controls="collapse-8">
+								Can I terminate my contract with an agency if I'm not satisfied?
+							</button>
+						</div>
+						<!-- Body -->
+						<div id="collapse-8" class="accordion-collapse collapse" aria-labelledby="heading-8" data-bs-parent="#accordionFaq">
+							<div class="accordion-body mt-3">
+								Yes, you can terminate your contract with an agency if you're not satisfied, although the specific terms of termination should be outlined in the contract. It's advisable to communicate any concerns or issues with the agency first to see if they can address them. If the relationship is not salvageable, you may need to follow the agreed-upon termination procedures.
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Accordion END -->
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Faq END -->
+
+<!-- =======================
+Action box START -->
+<section class="pt-0">
+	<div class="container">
+		<div class="bg-primary bg-opacity-10 rounded p-4 p-sm-5">
+
+			<div class="row">
+				<!-- Title and inputs -->
+				<div class="col-lg-7 text-center mx-auto">
+					<!-- Avatar group -->
+					<ul class="avatar-group mb-4 justify-content-center">
+						<li class="avatar avatar-xs">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">
+						</li>
+						<li class="avatar avatar">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
+						</li>
+						<li class="avatar avatar-lg z-index-2">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="avatar">
+						</li>
+						<li class="avatar avatar z-index-1">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar">
+						</li>
+						<li class="avatar avatar-xs">
+							<img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="avatar">
+						</li>
+					</ul>
+
+					<!-- Title -->
+					<h4>Still have a question?</h4>
+					<p class="mb-4">We'd be happy to help you with any questions you have! Please let us know what you're looking for, and we'll do our best to assist you.</p>
+
+					<!-- Button -->
+					<a href="contact-v1.html" class="btn btn-lg btn-dark mb-0">Contact us</a>
+				</div>
+			</div> <!-- Row END -->
+		</div>
+	</div>
+</section>
+<!-- =======================
+Action box END -->
+
+
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="pt-6">
+    <div class="container position-relative mt-sm-5">
+
+
+
+        <!-- Divider -->
+        <hr class="my-5">
+
+        <!-- Footer Widgets -->
+        <div class="row g-4 justify-content-between">
+            <!-- Widget 2 START -->
+            <div class="col-lg-3">
+            
+                <div class="row g-2 mb-4 mb-sm-5">
+
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-6">
+                        <a href="#"> <img src="assets/images/logo/soho-logo.png" alt="" > </a>
+                    </div>
+
+                </div>
+
+                <!-- Social buttons -->
+                <h6 class="mb-2 mb-md-4">Follow on</h6>
+
+                <ul class="list-inline mb-0 mt-3">
+                    <li class="list-inline-item"> <a class="btn btn-xs btn-icon " href="#"><img
+                                src="assets/images/whatsapp.png" height="30px" /></a> </li>
+                    <li class="list-inline-item"> <a class="btn btn-xs btn-icon" href="#"><img
+                                src="assets/images/insta.png" height="30px" /></a> </li>
+                    <li class="list-inline-item"> <a class="btn btn-xs btn-icon " href="#"><img
+                                src="assets/images/facebook.png" height="30px" /></a> </li>
+                    <li class="list-inline-item"> <a class="btn btn-xs btn-icon " href="#"><img
+                                src="assets/images/linkedin.png" height="30px" /></a> </li>
+
+                </ul>
+            </div>
+            <!-- Widget 2 END -->
+            <!-- Widget 1 START -->
+            <div class="col-lg-9 col-xl-9">
+                <div class="row g-4">
+                    <!-- Link block -->
+                    <div class="col-4 col-md-2">
+                        <h6 class="mb-2 mb-md-4" style="font-size: 17px;">Links</h6>
+                        <ul class="nav flex-column">
+                            <li class="nav-item"><a class="nav-link" href="">Home </a></li>
+                            <li class="nav-item"><a class="nav-link" href="">About us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="">Courses </a></li>
+                        
+                            <li class="nav-item"><a class="nav-link" href="">Gallery</a></li>
+                            
+                            <li class="nav-item"><a class="nav-link" href="">Contact us</a></li>
+
+                        </ul>
+                    </div>
+
+                    <!-- Link block -->
+                    <div class="col-8 col-md-4">
+                        <h6 class="mb-2 mb-md-4" style="font-size: 17px;">Our Services</h6>
+                        <ul class="nav flex-column">
+                            <li class="nav-item"><a class="nav-link pt-0"
+                                    href="">Electric Vehicles (EV)</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="">Industrial Automation</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="">Robotics</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="">Design & Manufacturing Tools</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="">Artificial Intelligence & Machine
+                                    Learning</a></li>
+
+
+                        </ul>
+                    </div>
+
+                    <!-- Link block -->
+                    <div class="col-md-3">
+                        <h6 class="mb-2 mb-md-4" style="font-size: 17px;">Mumbai Address</h6>
+                        <ul class="list-group list-group-borderless">
+                            <li class="d-flex mb-3" style="font-size: 16px;"><i class="bi bi-geo-alt" style=" color: #00924a"></i>
+                            Shop No.116, Lodha shopping center, Lodha Casa Rio Gold Rd, above Unity Bank, Maduban Society, Dombivli East, Nilje Gaon, Maharashtra 421204 <br>
+                            </li>
+            
+
+
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h6 class="mb-2 mb-md-4" style="font-size: 17px;">Pune Address</h6>
+                        <ul class="list-group list-group-borderless">
+                            <li class="d-flex mb-3" style="font-size: 16px;"><i class="bi bi-geo-alt" style=" color: #00924a"></i>
+                            MIT ,WPU Department of Polytechnic 							
+                                Vishwashanti Marg, Rambaug Colony, Kothrud, Pune, Maharashtra 411038 <br>
+                            </li>
+            
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Widget 1 END -->
+
+
+        </div>
+
+        <!-- Divider -->
+        <hr class="mt-4 mb-3">
+
+        <!-- Bottom footer -->
+        <div class="  d-flex justify-content-center align-items-center  py-3" style="display: flex; align-items: center; justify-content: center;">
+
+
+            <!-- Copyright link-->
+            <div class="text-body mt-3 mt-md-0" > Copyrights ©2025 EVRobotics Skill Coach (India) Pvt. Ltd. Design by
+                <a href="https://www.netcom-india.com/" class="text-body text-primary-hover">Netcom Business
+                    Solutions Pvt Ltd</a>. </div>
+            <!-- Copyright link-->
+        </div>
+    </div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+
+<!-- Mirrored from stackbros.in/mizzle/faq.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Jun 2025 05:37:11 GMT -->
+</html>
