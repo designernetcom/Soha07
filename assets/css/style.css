@@ -9695,7 +9695,7 @@ textarea.form-control-lg {
 }
 
 .px-0 {
-  padding-right: 0 !important;
+  padding-right: 10px !important;
   padding-left: 0 !important;
 }
 
@@ -22409,4 +22409,115 @@ a.text-primary-hover:hover, button.text-primary-hover:hover {
 /* Pause animation on hover */
 .hero-banner-container:hover .hero-slide-wrapper {
   animation-play-state: paused;
+}
+
+
+
+
+/* ------------------Home page banner ------------------- */
+
+.banner-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner.active {
+  opacity: 1;
+}
+
+.banner-text {
+  color: white;
+
+  font-size: 3.8rem;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* -webkit-text-stroke: 1.5px black; */
+  background: white;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  transform: translateY(20px);
+  transition: transform 0.5s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.banner.active .banner-text {
+  transform: translateY(0);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+}
+
+.banner:nth-child(1) {
+  background-image: url('../images/bg/banner.jpeg');
+}
+
+.banner:nth-child(2) {
+  background-image: url('../images/bg/banner1.jpeg');
+}
+
+.banner:nth-child(3) {
+  background-image: url('../images/bg/banner2.jpeg');
+}
+
+.indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.indicator.active {
+  background: white;
+}
+
+@media (max-width: 768px) {
+  .banner-container {
+    height: 60vh;
+  }
+
+  .banner-text {
+    font-size: 2rem;
+    /* -webkit-text-stroke: 1px black; */
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-container {
+    height: 50vh;
+  }
+
+  .banner-text {
+    font-size: 1.7rem;
+    /* -webkit-text-stroke: 0.8px black; */
+    letter-spacing: 1px;
+  }
 }

@@ -112,52 +112,37 @@
 
 					<!-- Nav item -->
 					<li class="nav-item dropdown">
-						<a class="nav-link  active" href="index.html" data-bs-auto-close="outside"  aria-haspopup="true" aria-expanded="false">Home</a>
+						<a class="nav-link  active" href="index.html"   >Home</a>
 						
 					</li>
 
-                    <li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="about.html" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">About</a>
-						<ul class="dropdown-menu">
-							<!-- Dropdown submenu -->
-	
-							<li> <a class="dropdown-item" href="about.html">About </a></li>
-							<li> <a class="dropdown-item" href="#">Founder’s Message</a></li>
-							
-		
-
-			
-
-
-	
-
-
+                    <li class="nav-item ">
+						<a class="nav-link " href="about.html"  >About Us</a>
 						
-						</ul>
 					</li>
 
 
 					<!-- Nav item -->
 					<li class="nav-item dropdown dropdown-fullwidth">
-						<a class="nav-link " href="course.html" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Courses</a>
+						<a class="nav-link " href="course.html" >Courses</a>
 					
 					</li>
 							<!-- Nav item -->
 							<li class="nav-item dropdown dropdown-fullwidth">
-								<a class="nav-link " href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Training</a>
+								<a class="nav-link " href="#" >Training</a>
 							
 							</li>
 								<!-- Nav item -->
 								<li class="nav-item dropdown dropdown-fullwidth">
-									<a class="nav-link " href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Workshop</a>
+									<a class="nav-link " href="#" >Workshop</a>
 								
 								</li>
 								<li class="nav-item dropdown dropdown-fullwidth">
-									<a class="nav-link " href="faq.html" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">FAQ</a>
+									<a class="nav-link " href="faq.html"   >FAQ</a>
 								
 								</li>
 								<li class="nav-item dropdown dropdown-fullwidth">
-									<a class="nav-link " href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gallery</a>
+									<a class="nav-link " href="gallery.html"   >Gallery</a>
 								
 								</li>
 
@@ -196,113 +181,59 @@
 
 <!-- --------------------- main Banner Start ----------------- -->
 
-<div class="hero-banner-container">
-	<div class="hero-slide-wrapper">
-		<div class="hero-slide-item">
-			<div class="hero-overlay-pattern"></div>
-			<div class="hero-floating-shapes">
-				<div class="hero-shape"></div>
-				<div class="hero-shape"></div>
-				<div class="hero-shape"></div>
-				<div class="hero-shape"></div>
+<div class="banner-container">
+			<div class="banner active">
+				<h1 class="banner-text">Welcome to the Future</h1>
+			</div>
+			<div class="banner">
+				<h1 class="banner-text">Shaping the Future of E-Mobility</h1>
+			</div>
+			<div class="banner">
+				<h1 class="banner-text">Welcome to the Future</h1>
+			</div>
+			<div class="indicators">
+				<div class="indicator active" data-slide="0"></div>
+				<div class="indicator" data-slide="1"></div>
+				<div class="indicator" data-slide="2"></div>
 			</div>
 		</div>
-		<div class="hero-slide-item">
-			<div class="hero-overlay-pattern"></div>
-			<div class="hero-floating-shapes">
-				<div class="hero-shape"></div>
-				<div class="hero-shape"></div>
-				<div class="hero-shape"></div>
-				<div class="hero-shape"></div>
-			</div>
-		</div>
-		<div class="hero-slide-item">
-			<div class="hero-overlay-pattern"></div>
-			<div class="hero-floating-shapes">
-				<div class="hero-shape"></div>
-				<div class="hero-shape"></div>
-				<div class="hero-shape"></div>
-				<div class="hero-shape"></div>
-			</div>
-		</div>
-	</div>
 
-	<!-- <div class="hero-content-container">
-		<div class="hero-slide-content hero-slide-content-1 active">
-			<h1 class="hero-main-title">Elevate Your Success</h1>
-			<p class="hero-description-text">
-				Revolutionize your business operations with smart technology solutions. We deliver results that matter, transforming challenges into opportunities for exponential growth.
-			</p>
-			<a href="#" class="hero-cta-button">Get Started</a>
-		</div>
-		
-		<div class="hero-slide-content hero-slide-content-2">
-			<h1 class="hero-main-title">Beyond Tomorrow</h1>
-			<p class="hero-description-text">
-				Step into the future with next-generation technologies that redefine possibilities. Our advanced solutions bring science fiction to reality.
-			</p>
-			<a href="#" class="hero-cta-button">Explore Tech</a>
-		</div>
-		
-		<div class="hero-slide-content hero-slide-content-3">
-			<h1 class="hero-main-title">Stronger Together</h1>
-			<p class="hero-description-text">
-				Unite diverse talents to create extraordinary outcomes. Our collaborative approach ensures every voice is heard and every idea has the power to innovate.
-			</p>
-			<a href="#" class="hero-cta-button">Connect Now</a>
-		</div>
-	</div> -->
+		<script>
+			const banners = document.querySelectorAll('.banner');
+			const indicators = document.querySelectorAll('.indicator');
+			let currentSlide = 0;
+			const slideInterval = 5000;
 
-	<div class="hero-slide-indicators">
-		<div class="hero-indicator-dot active"></div>
-		<div class="hero-indicator-dot"></div>
-		<div class="hero-indicator-dot"></div>
-	</div>
-</div>
+			function goToSlide(index) {
+				banners[currentSlide].classList.remove('active');
+				indicators[currentSlide].classList.remove('active');
+				currentSlide = index;
+				banners[currentSlide].classList.add('active');
+				indicators[currentSlide].classList.add('active');
+			}
 
-<script>
-	// Update active indicator and content based on current slide
-	const indicators = document.querySelectorAll('.hero-indicator-dot');
-	const slideContents = document.querySelectorAll('.hero-slide-content');
-	let currentSlide = 0;
+			function nextSlide() {
+				const next = (currentSlide + 1) % banners.length;
+				goToSlide(next);
+			}
 
-	function updateSlide() {
-		// Update indicators
-		indicators.forEach((indicator, index) => {
-			indicator.classList.toggle('active', index === currentSlide);
-		});
-		
-		// Update content
-		slideContents.forEach((content, index) => {
-			content.classList.toggle('active', index === currentSlide);
-		});
-		
-		currentSlide = (currentSlide + 1) % 3;
-	}
+			let autoSlide = setInterval(nextSlide, slideInterval);
 
-	// Update slide every 4 seconds (matching slide timing)
-	setInterval(updateSlide, 4000);
+			indicators.forEach((indicator, index) => {
+				indicator.addEventListener('click', () => {
+					clearInterval(autoSlide);
+					goToSlide(index);
+					autoSlide = setInterval(nextSlide, slideInterval);
+				});
+			});
 
-	// Click functionality for indicators
-	indicators.forEach((indicator, index) => {
-		indicator.addEventListener('click', () => {
-			currentSlide = index;
-			updateSlide();
-			
-			// Temporarily adjust animation to jump to clicked slide
-			const wrapper = document.querySelector('.hero-slide-wrapper');
-			wrapper.style.transform = `translateX(-${index * 33.333}%)`;
-			wrapper.style.transition = 'transform 0.5s ease';
-			
-			setTimeout(() => {
-				wrapper.style.transition = '';
-			}, 500);
-		});
-	});
-
-	// Initialize first slide content
-	slideContents[0].classList.add('active');
-</script>
+			banners.forEach(banner => {
+				banner.addEventListener('mouseenter', () => clearInterval(autoSlide));
+				banner.addEventListener('mouseleave', () => {
+					autoSlide = setInterval(nextSlide, slideInterval);
+				});
+			});
+		</script>
 
 
 
@@ -606,7 +537,7 @@ Blog START -->
                 <!-- Slide 1 -->
                 <div class="swiper-slide">
                     <article class="card bg-transparent">
-                        <img src="assets/images/services/istockphoto-183545763-612x612.jpg" class="card-img" alt="Electric Vehicle Design">
+                        <img src="./assets/Electric vehicle design and development.jpeg" class="card-img" alt="Electric Vehicle Design">
                         <div class="card-body px-0 pb-0">
                             <h6 class="card-title">Electric Vehicle Design & Development</h6>
                         </div>
@@ -616,7 +547,7 @@ Blog START -->
                 <!-- Slide 2 -->
                 <div class="swiper-slide">
                     <article class="card bg-transparent">
-                        <img src="assets/images/services/course-img-2.png" style="object-fit: contain  !important;" class="card-img" alt="Battery Pack Design">
+                        <img src="./assets/Battery Pack Design and Battery Management System (BMS).jpeg" style="object-fit: contain  !important;" class="card-img" alt="Battery Pack Design">
                         <div class="card-body px-0 pb-0">
                             <h6 class="card-title">EV Battery Pack Design & Thermal Management</h6>
                         </div>
@@ -1044,17 +975,16 @@ Blog END -->
 		<div class="vimal-founder-wrapper vimal-bg-pattern">
 			<div class="vimal-founder-container">
 				<!-- Compact Hero Section -->
-				<div class="vimal-hero-section">
+				<!-- <div class="vimal-hero-section">
 					<div class="vimal-hero-badge">Founder's Note</div>
-					<!-- <h1 class="vimal-main-title">Vimal Ojha</h1>
-					<p class="vimal-hero-subtitle">Transforming India's Talent into Global Tech Leaders</p>				 -->
-				</div>
+					
+				</div> -->
 	
 				<div class="vimal-content-wrapper">
-					<!-- Compact Profile Section -->
+					
 					<div class="vimal-profile-section">
-						<div class="vimal-profile-header">
-							<!-- <div class="vimal-avatar">VO</div> -->
+						<!-- <div class="vimal-profile-header">
+							
 							<div class="vimal-profile-info">
 								<h2>Founder - Vimal Ojha</h2>
 								<div class="vimal-role-tags">
@@ -1068,9 +998,9 @@ Blog END -->
 	
 						<div class="vimal-signature-quote">
 							<p class="vimal-quote-text">"I don't just teach machines — I train minds to build the future."</p>
-						</div>
+						</div> -->
 	
-						<div class="vimal-achievement-grid">
+						<!-- <div class="vimal-achievement-grid">
 							<div class="vimal-stat-card">
 								<span class="vimal-stat-number">500K+</span>
 								<span class="vimal-stat-label">Students Trained</span>
@@ -1088,37 +1018,12 @@ Blog END -->
 								<span class="vimal-stat-label">EV Lab in India</span>
 							</div>
 						</div>
-					</div>
+					</div> -->
 	
-					<!-- ENHANCED STORY GRID - 4 CARDS IN ONE ROW -->
-					<div class="vimal-story-grid">
-						<div class="vimal-story-card">
-							<!-- <div class="vimal-story-icon">🎯</div> -->
-							<h3 class="vimal-story-title">Vision & Leadership</h3>
-							<p class="vimal-story-text">Believing that Bharat will lead the world by creating trends, not following them. Transforming young talent into skilled, self-reliant, and spiritually grounded global tech leaders.</p>
-						</div>
-						<div class="vimal-story-card">
-							<!-- <div class="vimal-story-icon">🚀</div> -->
-							<h3 class="vimal-story-title">Industry Excellence</h3>
-							<p class="vimal-story-text">Decade-long experience working with giants like Tata, Mahindra, Toyota, and mentoring 25+ startups in Electric Vehicles, Robotics, and Automation.</p>
-						</div>
-						<div class="vimal-story-card">
-							<!-- <div class="vimal-story-icon">🛠️</div> -->
-							<h3 class="vimal-story-title">Practical Innovation</h3>
-							<p class="vimal-story-text">Every learner deserves the power to build, not just observe. Our labs provide hands-on experience with real EVs, battery packs, MATLAB simulations, and AI integration.</p>
-						</div>
-						<div class="vimal-story-card">
-							<!-- <div class="vimal-story-icon">🌟</div> -->
-							<h3 class="vimal-story-title">Movement & Philosophy</h3>
-							<p class="vimal-story-text">EVRobotics is a movement towards a smarter, sustainable, and self-sufficient India. Training to make for India and the world, not just talking about "Make in India."</p>
-						</div>
-					</div>
+					
+				
 	
-					<!-- Enhanced Mission Statement -->
-					<div class="vimal-mission-spotlight">
-						<h3 class="vimal-mission-title">The EVRobotics Mission</h3>
-						<p class="vimal-mission-text">"Why should Indian students only learn theory, when the world needs real skills & innovators?" Built India's first full-scale EV and Automation Lab where students work on real vehicles, assemble battery packs, run simulations, and integrate AI—all under one roof.</p>
-					</div>
+					
 
 					<section class="overflow-hidden pb-0">
 	<div class="container">
@@ -1244,6 +1149,28 @@ Blog END -->
 		</div>
 	</div>
 </section>
+	<div class="vimal-story-grid">
+						<div class="vimal-story-card">
+							
+							<h3 class="vimal-story-title">Vision & Leadership</h3>
+							<p class="vimal-story-text">Believing that Bharat will lead the world by creating trends, not following them. Transforming young talent into skilled, self-reliant, and spiritually grounded global tech leaders.</p>
+						</div>
+						<div class="vimal-story-card">
+							<!-- <div class="vimal-story-icon">🚀</div> -->
+							<h3 class="vimal-story-title">Industry Excellence</h3>
+							<p class="vimal-story-text">Decade-long experience working with giants like Tata, Mahindra, Toyota, and mentoring 25+ startups in Electric Vehicles, Robotics, and Automation.</p>
+						</div>
+						<div class="vimal-story-card">
+							<!-- <div class="vimal-story-icon">🛠️</div> -->
+							<h3 class="vimal-story-title">Practical Innovation</h3>
+							<p class="vimal-story-text">Every learner deserves the power to build, not just observe. Our labs provide hands-on experience with real EVs, battery packs, MATLAB simulations, and AI integration.</p>
+						</div>
+						<div class="vimal-story-card">
+							<!-- <div class="vimal-story-icon">🌟</div> -->
+							<h3 class="vimal-story-title">Movement & Philosophy</h3>
+							<p class="vimal-story-text">EVRobotics is a movement towards a smarter, sustainable, and self-sufficient India. Training to make for India and the world, not just talking about "Make in India."</p>
+						</div>
+					</div>
 	
 					<!-- Enhanced COE Section -->
 					<!-- <div class="vimal-coe-banner">
@@ -1274,7 +1201,7 @@ Blog END -->
 
 	<!-- =======================
 Footer START -->
-	<footer class="pt-6">
+	<footer class="">
     <div class="container position-relative mt-sm-5">
 
 
